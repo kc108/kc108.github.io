@@ -1,17 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script defer src="./js/script.js"></script>
+    <script defer src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script defer src="js/script.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <title>Cat Reference Trivia Game</title>
 </head>
+
 <body>
     <h1>What kind of cat am I?</h1>
-    <img id="image">
-    <button id="breed"></button>
+    <div><img id="image"></div>
+    <div>
+        <button class="breed" id="breed1">breed1</button>
+        <button class="breed" id="breed2">breed2</button>
+        <button class="breed" id="breed3">breed3</button>
+        <button class="breed" id="breed4">breed4</button>
+    </div>
     <div id="pop_up">
         <p id="desc"></p>
         <p id="energy_level"></p>
@@ -19,6 +27,7 @@
         <p id="weight"></p>
         <p id="life_span"></p>
     </div>
-    
+
 </body>
+
 </html>
