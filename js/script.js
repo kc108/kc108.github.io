@@ -3,7 +3,7 @@ const API_KEY = 'bb7080f5-00e5-4645-9c7b-6d3eca4f0645';
 let catData, imageData, breeds, correctBreed;
 
 const $breed = $("#breed");
-const $image = $("#image");
+const $cat_image = $(".catImage");
 const $energy_level = $("#energy_level");
 const $country = $("#country");
 const $weight = $("#weight");
@@ -31,7 +31,7 @@ const promise = $.ajax({
 function getImage() {
     let breedNum = Math.floor(Math.random() * Math.floor(breeds.length));
     correctBreed = breeds[breedNum];
-    // console.log(breed);
+    console.log(correctBreed);
 
     const promise2 = $.ajax({
         url: 'https://api.thecatapi.com/v1/images/search?breed_id=' + correctBreed.id,
@@ -54,11 +54,11 @@ function render() {
     $breed.text(correctBreed.name);
     // $image.attr(imageData);
     //console.log(breed);
-    $image.attr('src', imageData[0].url);
+    $cat_image.attr('src', imageData[0].url);
     $energy_level.text(correctBreed.temperament);
     $country.text(correctBreed.origin);
-    $weight.text(correctBreed.weight_imperial);
-    $life_span.text(correctBreed.life_span);
+    $weight.text(correctBreed.weight.imperial + " pounds");
+    $life_span.text(correctBreed.life_span + " years");
     $desc.text(correctBreed.description);
     // select 3 wrong answers
     let buttonBreeds = [correctBreed];
@@ -90,7 +90,10 @@ function handleClick(event) {
     if(correctBreed.name === $(event.target).text()) {
         $("#pop_up").show();
     } 
-    // console.log("finn")
+    // console.log("finn");
+
+    
+    /* need to work on making pop-up display*/
     
 }
 
@@ -113,6 +116,8 @@ function shuffle(array) {
   
     return array;
   }
+
+  
 
 
 
