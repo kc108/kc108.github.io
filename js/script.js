@@ -1,6 +1,6 @@
 // console.log("Finn cat")
 const API_KEY = 'bb7080f5-00e5-4645-9c7b-6d3eca4f0645';
-let catData, imageData, breeds, correctBreed;
+let catData, imageData, breeds, correctBreed, rightAnswers = 0, wrongAnswers = 0, pickedAnswer;
 
 const $breed = $("#breed");
 const $cat_image = $(".catImage");
@@ -10,6 +10,7 @@ const $weight = $("#weight");
 const $life_span = $("#life_span");
 const $desc = $("#desc");
 const $buttons = $(".breed");
+const $score = $("#score");
 
 
 
@@ -20,7 +21,7 @@ const promise = $.ajax({
     (data) => {
         // console.log(data);
         breeds = data;
-        getImage();
+        getNewCat();
     }, 
     (error) => {
         console.log('bad request', error);
@@ -28,11 +29,12 @@ const promise = $.ajax({
 );
 
 
-function getImage() {
+function getNewCat() {
     $buttons.removeClass("wrong");
     let breedNum = Math.floor(Math.random() * Math.floor(breeds.length));
     correctBreed = breeds[breedNum];
     console.log(correctBreed);
+    pickedAnswer = false;
 
     const promise2 = $.ajax({
         url: 'https://api.thecatapi.com/v1/images/search?breed_id=' + correctBreed.id,
@@ -89,13 +91,24 @@ function handleClick(event) {
     event.preventDefault();
     if(correctBreed.name === $(event.target).text()) {
         $("#pop_up").show();
+        // if you haven't picked an answer before increment the score
+        if(!pickedAnswer) {
+            rightAnswers++;
+        }
     } else {
         $(event.target).addClass("wrong");
+        if(!pickedAnswer) {
+            wrongAnswers++;
+        }
     }
     // console.log("finn");
-
+    // set picked answer to true
+    pickedAnswer = true;
     
-    /* need to work on making pop-up display*/
+    // display score
+    $score.text(`${rightAnswers}/${rightAnswers + wrongAnswers}`);
+    
+    // keep track of num of wrongAnswers + rightAnswers
     
 }
 
@@ -122,7 +135,7 @@ function shuffle(array) {
 // event handler for button on 'popup' 
 $("#meow").on('click', (event) => {
     $("#pop_up").hide();
-    getImage();
+    getNewCat();
 });
 
 

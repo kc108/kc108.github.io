@@ -17,7 +17,7 @@ body {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 19px;
-    
+   
 }
 
 h1 {
@@ -73,3 +73,19 @@ div {
   .meow {
       text-align: right;
   }
+
+  #scorebox {
+    border: solid rgb(58, 69, 122);
+    border-radius: 5px;
+    padding: 15px;
+    color: rgb(58, 69, 122);
+}
+
+#meow {
+    background-color: rgb(58, 69, 122);
+    color: white;
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+  
