@@ -29,6 +29,7 @@ const promise = $.ajax({
 
 
 function getImage() {
+    $buttons.removeClass("wrong");
     let breedNum = Math.floor(Math.random() * Math.floor(breeds.length));
     correctBreed = breeds[breedNum];
     console.log(correctBreed);
@@ -77,8 +78,7 @@ function render() {
     $buttons.eq(i).text(buttonBreeds[i].name);
     }
     
-    // button inside of pop-up to go to next cat
-    // show number of correctly guessed cat breeds
+    // TODO: show number of correctly guessed cat breeds
     
 }
 
@@ -89,7 +89,9 @@ function handleClick(event) {
     event.preventDefault();
     if(correctBreed.name === $(event.target).text()) {
         $("#pop_up").show();
-    } 
+    } else {
+        $(event.target).addClass("wrong");
+    }
     // console.log("finn");
 
     

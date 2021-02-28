@@ -26,19 +26,14 @@ h1 {
 }
 
 div {
-    text-align: center;
+    text-align: left;
 }
 
-.desc {
+#desc {
     word-wrap: break-word;
+    text-align: left;
 
 }
-
-
-
-
-
-
 
 /* The Modal (background) */
 .modal {
@@ -56,9 +51,25 @@ div {
   /* Modal Content/Box, Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
   .modal-content {
     background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
+    margin: 2% auto; /* 15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
   }
   
+  .wrong {
+      background-color: red;
+  }
+
+  #text {
+      max-width: 50%;
+      margin: auto;
+  }
+
+  .center {
+      text-align: center;
+  }
+  
+  .meow {
+      text-align: right;
+  }
