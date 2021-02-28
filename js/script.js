@@ -117,7 +117,12 @@ function shuffle(array) {
     return array;
   }
 
-  
+// event handler for button on 'popup' 
+$("#meow").on('click', (event) => {
+    $("#pop_up").hide();
+    getImage();
+});
+
 
 
 
