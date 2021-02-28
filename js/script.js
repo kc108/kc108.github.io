@@ -108,8 +108,8 @@ function handleClick(event) {
     // display score
     $score.text(`${rightAnswers}/${rightAnswers + wrongAnswers}`);
     
-    // keep track of num of wrongAnswers + rightAnswers
-    
+    // TODO: keep track of num of wrongAnswers + rightAnswers
+
 }
 
 // will shuffle arrays for buttons: reference: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
