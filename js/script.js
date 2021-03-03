@@ -12,21 +12,22 @@ const $desc = $("#desc");
 const $buttons = $(".breed");
 const $score = $("#score");
 
+loadBreeds();
 
-
-const promise = $.ajax({
-    url: 'https://api.thecatapi.com/v1/breeds', 
-    headers: { "x-api-key": API_KEY }
-}).then(
-    (data) => {
-        // console.log(data);
-        breeds = data;
-        getNewCat();
-    }, 
-    (error) => {
-        console.log('bad request', error);
-    }
-);
+function loadBreeds() {
+    const promise = $.ajax({
+        url: 'https://api.thecatapi.com/v1/breeds', 
+        headers: { "x-api-key": API_KEY }
+    }).then(
+        (data) => {
+            // console.log(data);
+            breeds = data;
+            getNewCat();
+        }, 
+        (error) => {
+            console.log('bad request', error);
+        });
+}
 
 
 function getNewCat() {
@@ -77,7 +78,7 @@ function render() {
     // console.log(buttonBreeds[0]);
     // name button with random cat breeds
     for (let i = 0; i < 4; i++) {
-    $buttons.eq(i).text(buttonBreeds[i].name);
+        $buttons.eq(i).text(buttonBreeds[i].name);
     }
     
     // TODO: show number of correctly guessed cat breeds
@@ -109,28 +110,8 @@ function handleClick(event) {
     $score.text(`${rightAnswers}/${rightAnswers + wrongAnswers}`);
     
     // TODO: keep track of num of wrongAnswers + rightAnswers
-
+    
 }
-
-// will shuffle arrays for buttons: reference: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-function shuffle(array) {
-    var currentIndex = array.length, temporaryValue, randomIndex;
-  
-    // While there remain elements to shuffle...
-    while (0 !== currentIndex) {
-  
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
-  
-      // And swap it with the current element.
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-  
-    return array;
-  }
 
 // event handler for button on 'popup' 
 $("#meow").on('click', (event) => {
@@ -138,6 +119,26 @@ $("#meow").on('click', (event) => {
     getNewCat();
 });
 
+
+// will shuffle arrays for buttons: reference: https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+function shuffle(array) {
+    var currentIndex = array.length, temporaryValue, randomIndex;
+
+    // While there remain elements to shuffle...
+    while (0 !== currentIndex) {
+
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+
+        // And swap it with the current element.
+        temporaryValue = array[currentIndex];
+        array[currentIndex] = array[randomIndex];
+        array[randomIndex] = temporaryValue;
+    }
+
+    return array;
+}
 
 
 
