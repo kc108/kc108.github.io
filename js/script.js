@@ -160,7 +160,7 @@ $("#meow").on('click', (event) => {
 });
 
 // event handler for restart button
-$("#restart").on('click', (event) => {
+$(".restart").on('click', (event) => {
     start();
 });
 

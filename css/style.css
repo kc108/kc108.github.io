@@ -4,9 +4,11 @@ body {
     line-height: 1.6;
 }
 
-#lives {
+#top {
     text-align: center;
     font-size: 30px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .catImage {
