@@ -10,7 +10,7 @@ const $country = $("#country");
 const $weight = $("#weight");
 const $life_span = $("#life_span");
 const $desc = $("#desc");
-const $buttons = $(".breed");
+const $buttons = $(".breedButton");
 const $score = $("#score");
 
 loadBreeds();
@@ -81,6 +81,7 @@ function render() {
     $weight.text(correctBreed.weight.imperial + " pounds");
     $life_span.text(correctBreed.life_span + " years");
     $desc.text(correctBreed.description);
+   
     
  
     // name button with random cat breeds
