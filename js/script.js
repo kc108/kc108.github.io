@@ -81,6 +81,8 @@ function render() {
     $weight.text(correctBreed.weight.imperial + " pounds");
     $life_span.text(correctBreed.life_span + " years");
     $desc.text(correctBreed.description);
+
+    // TODO: keep track of lives
    
     
  

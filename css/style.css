@@ -18,6 +18,18 @@ body {
 }
 
 
+.buttonContainer {
+    display: grid;
+    width: 500px;
+    grid-template-columns: [start] 1fr [middle] 1fr [end];
+    /* width: max-content;
+    grid-template-columns: max-content max-content; */
+    margin: auto;
+    row-gap: 0.5em;
+    column-gap: 0.5em;
+
+}
+
 
 .breedButton {
     background: black;
@@ -25,12 +37,15 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 19px;
     border-radius: 5px;
+    padding: 5px;
 }
 
 h1 {
     text-align: center;
     font-size: 46px;
 }
+
+
 
 h2 {
     text-align: center;
@@ -82,13 +97,13 @@ h2 {
     text-align: center;
 }
 
-.meow {
-    text-align: right;
+.scoreboxdiv {
+    display: flex;
+    padding: 15px;
+    justify-content: space-between;
 }
 
 #scorebox {
-    border: solid rgb(58, 69, 122);
-    border-radius: 5px;
     padding: 15px;
     color: rgb(58, 69, 122);
 }
@@ -100,22 +115,19 @@ h2 {
     font-size: 20px;
 }
 
-.container {
-    display: grid;
-    /* grid-template-columns: [start] 1fr [middle] 1fr [end]; */
-    /* grid-template-rows: [top] 1fr [mid] 1fr [bottom]; */
-    /* width: 25%; */
-    grid-template-columns: max-content max-content;
-    margin: auto;
-    width: max-content;
-    row-gap: 0.5em;
-    column-gap: 0.5em;
-}
-
 
 
 @media (max-width: 600px) {
     .catImage {
-        max-width: 50%;
+        max-width: 100%;
+    }
+    #text {
+        max-width: 100%;
+    }
+    h1 {
+        font-size: 30px;
+    }
+    .buttonContainer {
+    width: 100%;
     }
 }
