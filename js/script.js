@@ -24,13 +24,23 @@ function loadBreeds() {
         (data) => {
             // console.log(data);
             breeds = data;
-            getNewCat();
+            start();
         }, 
         (error) => {
             console.log('bad request', error);
         });
 }
 
+// to start game
+function start() {
+    rightAnswers = 0;
+    wrongAnswers = 0;
+    pickedAnswer = false;
+    lives = 9;
+    showRightAnswer = false;
+    showOutOfLives = false;
+    getNewCat();
+}
 
 function getNewCat() {
     showRightAnswer = false;
@@ -85,8 +95,7 @@ function render() {
     $life_span.text(correctBreed.life_span + " years");
     $desc.text(correctBreed.description);
 
-    // TODO: keep track of lives
-    // TODO: create popup 
+       
     // TODO: restart button
       
  
@@ -97,7 +106,11 @@ function render() {
 
     // display score
     $score.text(`${rightAnswers}/${rightAnswers + wrongAnswers}`);
-    $("#lives").text(lives);
+    let emojis = "";
+    for (let i = 0; i < lives; i++) {
+        emojis += "😻";
+    }
+    $("#lives").text(emojis);
 
     $("#pop_up").hide();
     $("#rightAnswer").hide();
@@ -144,6 +157,11 @@ function handleClick(event) {
 // event handler for button on 'popup' 
 $("#meow").on('click', (event) => {
     getNewCat();
+});
+
+// event handler for restart button
+$("#restart").on('click', (event) => {
+    start();
 });
 
 
