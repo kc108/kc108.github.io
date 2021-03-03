@@ -1,7 +1,8 @@
 // console.log("Finn cat")
 const API_KEY = 'bb7080f5-00e5-4645-9c7b-6d3eca4f0645';
-let catData, imageData, breeds, correctBreed, rightAnswers = 0, wrongAnswers = 0, pickedAnswer;
-let buttonBreeds, lives = 9;
+let catData, imageData, breeds, correctBreed, buttonBreeds;
+let rightAnswers = 0, wrongAnswers = 0, pickedAnswer, lives = 9;
+let showRightAnswer = false, showOutOfLives = false;
 
 const $breed = $("#breed");
 const $cat_image = $(".catImage");
@@ -32,6 +33,8 @@ function loadBreeds() {
 
 
 function getNewCat() {
+    showRightAnswer = false;
+    showOutOfLives = false;
     $buttons.removeClass("wrong");
         
     // select 4 unique breeds
@@ -83,12 +86,29 @@ function render() {
     $desc.text(correctBreed.description);
 
     // TODO: keep track of lives
-   
-    
+    // TODO: create popup 
+    // TODO: restart button
+      
  
     // name button with random cat breeds
     for (let i = 0; i < 4; i++) {
         $buttons.eq(i).text(buttonBreeds[i].name);
+    }
+
+    // display score
+    $score.text(`${rightAnswers}/${rightAnswers + wrongAnswers}`);
+    $("#lives").text(lives);
+
+    $("#pop_up").hide();
+    $("#rightAnswer").hide();
+    $("#outOfLives").hide();
+
+    if (showRightAnswer) {
+        $("#rightAnswer").show();
+        $("#pop_up").show();
+    } else if (showOutOfLives) {
+        $("#outOfLives").show();
+        $("#pop_up").show();
     }
 }
 
@@ -98,7 +118,7 @@ function handleClick(event) {
     // call preventDefault() 'onclick' event will refresh page
     event.preventDefault();
     if(correctBreed.name === $(event.target).text()) {
-        $("#pop_up").show();
+        showRightAnswer = true;
         // if you haven't picked an answer before increment the score
         if(!pickedAnswer) {
             rightAnswers++;
@@ -108,19 +128,21 @@ function handleClick(event) {
         if(!pickedAnswer) {
             wrongAnswers++;
         }
+        lives--;
+        if(lives <= 0) {
+            showOutOfLives = true;
+        }
     }
     // console.log("finn");
     // set picked answer to true
     pickedAnswer = true;
     
     // keep track of num of wrongAnswers + rightAnswers
-    // display score
-    $score.text(`${rightAnswers}/${rightAnswers + wrongAnswers}`);
+    render();
  }
 
 // event handler for button on 'popup' 
 $("#meow").on('click', (event) => {
-    $("#pop_up").hide();
     getNewCat();
 });
 

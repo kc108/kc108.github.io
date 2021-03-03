@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script defer src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script defer src="js/script.js"></script>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Indie+Flower">
     <link rel="stylesheet" href="css/style.css">
     <title>Cat Reference Trivia Game</title>
 </head>
@@ -29,21 +31,26 @@
   
     <div id="pop_up" class="modal">
         <div class="modal-content">
-            <div class="scoreboxdiv">
-                <span id="score"></span>
-                <button id="meow">Meow</button>
-            </div>
-            <div class="center"><img class="catImage popupImage"></div>
-            <h2 id="breed"></h2>
-            <div id="text">
-                <p id="desc"></p>
-                <hr>
-                <div class="center">
-                    <p id="energy_level"></p>
-                    <p id="country"></p>
-                    <p id="weight"></p>
-                    <p id="life_span"></p>
+            <div id="rightAnswer">
+                <div class="scoreboxdiv">
+                    <span id="score"></span>
+                    <button id="meow">Meow</button>
                 </div>
+                <div class="center"><img class="catImage popupImage"></div>
+                <h2 id="breed"></h2>
+                <div id="text">
+                    <p id="desc"></p>
+                    <hr>
+                    <div class="center">
+                        <p id="energy_level"></p>
+                        <p id="country"></p>
+                        <p id="weight"></p>
+                        <p id="life_span"></p>
+                    </div>
+                </div>
+            </div>
+            <div id="outOfLives">
+                <h1>🙀 Out of lives! 🙀</h1>
             </div>
         </div>
     </div>
