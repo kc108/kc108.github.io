@@ -1,16 +1,23 @@
-#pop_up {
-    display: none;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+#lives {
+    text-align: center;
+    font-size: 30px;
 }
 
 .catImage {
     max-width: 500px;
 }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 17px;
-    line-height: 1.6;
+.popupImage {
+    max-height: 300px;
 }
+
+
 
 .breed {
     background: black;
@@ -24,10 +31,6 @@ body {
 h1 {
     text-align: center;
     font-size: 46px;
-}
-
-div {
-    text-align: left;
 }
 
 #desc {
@@ -47,38 +50,38 @@ div {
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(58, 69, 122); 
-  }
+}
   
   /* Modal Content/Box, Reference: https://www.w3schools.com/howto/howto_css_modals.asp */
-  .modal-content {
+.modal-content {
     background-color: #fefefe;
-    margin: 2% auto; /* 15% from the top and centered */
+    margin: 2% auto; 
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Could be more or less, depending on screen size */
-  }
+}
   
-  .wrong {
-      background-color: red;
-  }
+.wrong {
+    background-color: red;
+}
 
-  #text {
-      max-width: 50%;
-      margin: auto;
-      color: rgb(58, 69, 122);
-      font-size: 17px;
+#text {
+    max-width: 50%;
+    margin: auto;
+    color: rgb(58, 69, 122);
+    font-size: 17px;
 
-  }
+}
 
-  .center {
-      text-align: center;
-  }
-  
-  .meow {
-      text-align: right;
-  }
+.center {
+    text-align: center;
+}
 
-  #scorebox {
+.meow {
+    text-align: right;
+}
+
+#scorebox {
     border: solid rgb(58, 69, 122);
     border-radius: 5px;
     padding: 15px;
@@ -93,16 +96,18 @@ div {
 }
 
 .container {
-  display: grid;
-  /* grid-template-columns: [start] 1fr [middle] 1fr [end]; */
-  /* grid-template-rows: [top] 1fr [mid] 1fr [bottom]; */
-  /* width: 25%; */
-  grid-template-columns: max-content max-content;
-  margin: auto;
-  width: max-content;
-  row-gap: 0.5em;
-  column-gap: 0.5em;
+    display: grid;
+    /* grid-template-columns: [start] 1fr [middle] 1fr [end]; */
+    /* grid-template-rows: [top] 1fr [mid] 1fr [bottom]; */
+    /* width: 25%; */
+    grid-template-columns: max-content max-content;
+    margin: auto;
+    width: max-content;
+    row-gap: 0.5em;
+    column-gap: 0.5em;
 }
+
+
 
 @media (max-width: 600px) {
     .catImage {
