@@ -1,5 +1,11 @@
 # 9 Lives
 
+## Link to '9 Lives' 
+
+https://kc108.github.io/
+
+---
+
 ## HTML for '9 Lives' game
 
 Including the following:
